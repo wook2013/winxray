@@ -542,16 +542,6 @@ frmXray.listview.onnotify = function(id,code,ptr){
 				
 				popmenu.add(); 
 				
-				popmenu.add('清空服务器列表',function(id){
-					config.proxy.outbounds = ..table.array();
-					frmXray.listview.clear();
-					
-					frmXray.btnTcping.disabledText = null;
-					frmXray.autoTesting = false;
-					frmXray.onTcpingReturn = function(outboundIndex,address,succeeded,speedText){}  
-					publish("outbounds.updateConfigJson");
-				});
-				
 				popmenu.add('清除「不可用」节点',function(id){
 					removeOutbounds();
 				});	
@@ -671,14 +661,6 @@ frmXray.listview.onnotify = function(id,code,ptr){
 			
 			popmenu.add('删除服务器',function(id){
 				removeOutbounds(selectedItems);
-			});
-				
-			popmenu.add('清空服务器列表',function(id){
-				if(currentIdx){
-					config.proxy.outbounds = ..table.array();
-					frmXray.listview.clear();
-					publish("outbounds.updateConfigJson");
-				}
 			});
 			
 			popmenu.add('清除「不可用」节点',function(id){
